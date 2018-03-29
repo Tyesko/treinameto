@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+
+/* diz que vc vai mexer no core */
+@include mat-core();
+
+$lua-red: map-merge($mat-red, ( 100: #d34c3b, 500: #9b1513, 700: #d32f2f));
+$lua-yellow:map-merge($mat-amber,  (100: #ffe456, 500: #E8B21C, 700: #ffa000));
+
+/*se vc der uma olhada na especificação vai entender o que é cor primária e secundária*/
+$lua-app-primary: mat-palette($lua-red);
+$lua-app-accent : mat-palette($lua-yellow);
+/* Create the theme object (a Sass map containing all of the palettes).*/
+$lua-app-theme: mat-light-theme($lua-app-primary, $lua-app-accent);
+/* Include theme styles for core and each component used in your app.*/
+/* Alternatively, you can import and @include the theme mixins for each component*/
+/* that you are using.*/
+@include angular-material-theme($lua-app-theme);
